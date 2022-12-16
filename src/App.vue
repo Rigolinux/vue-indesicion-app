@@ -1,15 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <Indesicion />
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import Indesicion from "./components/Indecision.vue";
 export default {
   name: "App",
+  // eslint-disable-next-line prettier/prettier
   components: {
-    HelloWorld,
+    Indesicion,
   },
 };
 </script>
