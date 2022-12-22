@@ -2,7 +2,8 @@
 <template>
   <h2>{{customTag}}</h2>
   <p>{{count}}<sup>2</sup> ={{getSquareValue()}}</p>
-  <div>
+  <p data-testid="counter">{{ count }}</p>
+  <div class="container">
     <button v-on:click="increase()">+</button>
     <button @click="decrease()">-</button>
   </div>
@@ -18,7 +19,7 @@ export default {
     start: {
       type: Number,
       //required: true,
-      default: 0,
+      default: 100,
       validator(value) {
         return value >= 0;
       },

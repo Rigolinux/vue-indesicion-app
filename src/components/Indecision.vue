@@ -26,7 +26,8 @@ export default {
   },
   methods: {
     async getAnswer() {
-      const response = await fetch("https://yesno.wtf/api");
+      try {
+        const response = await fetch("https://yesno.wtf/api");
       const data = await response.json();
       if (data.answer === "yes") {
         this.answer = "Si";
@@ -37,12 +38,17 @@ export default {
       }
 
       this.imagesrc = data.image;
+      } catch (error) {
+        this.answer = "No se ha podido obtener la respuesta";
+        this.imagesrc = null;
+      }
+      
     },
   },
   watch: {
     question(newQuestion) {
       this.isValidAnswer = newQuestion.endsWith("?");
-
+        console.log(newQuestion);
       if (newQuestion.endsWith("?")) {
         this.getAnswer();
       }
